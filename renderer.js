@@ -11,6 +11,6 @@ const func = async () => {
 }
 
 func();
-console.log('here');
+
 const information = document.getElementById('system-info')
 information.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()})`
