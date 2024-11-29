@@ -1,2 +1,13 @@
-const information = document.getElementById('info')
-information.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()}) iman ${versions.iman}`
+const func = async () => {
+    let response = 'false';
+    document.getElementById('button').addEventListener('click', async () => {
+        response = await window.versions.switch(response)
+        const information = document.getElementById('info')
+        information.innerText = response
+    })
+
+    const information = document.getElementById('info')
+    information.innerText = response
+}
+
+func()

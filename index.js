@@ -1,4 +1,4 @@
-const { app, BrowserWindow, WebContentsView } = require('electron');
+const {app, BrowserWindow, WebContentsView, ipcMain} = require('electron');
 const path = require('node:path');
 
 const createWindow = () => {
@@ -16,9 +16,5 @@ const createWindow = () => {
 app.whenReady().then(() => {
     createWindow();
 
-    app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow()
-        }
-    })
+    ipcMain.handle('switch', (e, value) => (value === 'false') ? 'true' : 'false');
 })
